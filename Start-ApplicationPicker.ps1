@@ -78,7 +78,6 @@ $iconImage = [convert]::FromBase64String($StringWithImage)
     # Load Controls for reference later
     $ListBox = $XMLApplicationForm.FindName('Applications')
     $StartWorkflow = $XMLApplicationForm.FindName('buttonStart')
-    $Back = $XMLApplicationForm.FindName('buttonBack')
     $MainImage = $XMLApplicationForm.FindName('image')
     $Instructions = $XMLApplicationForm.FindName('Instructions')
     $Title = $XMLApplicationForm.FindName('Title')
@@ -117,7 +116,6 @@ $iconImage = [convert]::FromBase64String($StringWithImage)
 
     $StartWorkflow.add_click({
             # Enter Code to save the choices as Task Sequence Variables
-            $ApplicationsSelected = $($ListBox.SelectedItems).Name
             If (!$Script:Debug) { $tsenv = New-Object -ComObject Microsoft.SMS.TSEnvironment }
             $Count = 1
             $AppId = @()
@@ -126,7 +124,7 @@ $iconImage = [convert]::FromBase64String($StringWithImage)
                 $Id = "{0:D2}" -f $Count
                 $AppId = "XApplications$Id" 
                 If (!$Script:Debug) { $tsenv.Value($AppId) = $($App.Name) } else { Write-Host $($App.Name) }
-                $Count = $Count + 1
+                $Count++
             }
 
             If (!$Script:Debug) { exit }
