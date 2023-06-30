@@ -35,9 +35,9 @@ $Script:ForegroundColor = "#FFFFFF"
 
 # Script Variables
 $Script:Debug = $True # Be sure to set this to False in production environment
-$UserPassword = 'RiverJade@2018' # use service account password
-$UserName = 'ua\jyoakum' # use domain\serviceaccount
-$SiteServerFQDN = 'anc-sccm-site01.ua.ad.alaska.edu' # this is in the form of servername.domain.com
+$UserPassword = 'PASSWORD' # use service account password
+$UserName = 'domain\username' # use domain\serviceaccount
+$SiteServerFQDN = 'siteserver.domain.com' # this is in the form of servername.domain.com
 
 # Convert image back from base64
 $iconImage = [convert]::FromBase64String($StringWithImage)
